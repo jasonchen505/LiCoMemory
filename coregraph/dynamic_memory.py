@@ -280,7 +280,13 @@ class DynamicMemory:
         self.entity_name_to_index = {entity.get('entity', ''): idx for idx, entity in enumerate(entities)}
         
         # Pre-compute and store embeddings for entities, relationships, and summaries
-        await self._precompute_embeddings(entities, relationships)
+        # Skip if embedding service is not available
+        try:
+            await asyncio.wait_for(self._precompute_embeddings(entities, relationships), timeout=30)
+        except asyncio.TimeoutError:
+            logger.warning("⚠️  Embedding precomputation timed out, skipping...")
+        except Exception as e:
+            logger.warning(f"⚠️  Embedding precomputation failed: {e}, skipping...")
         
         self.time_manager.end_total_graph_building()
         self._log_graph_building_summary()

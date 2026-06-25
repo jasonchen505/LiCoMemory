@@ -1,4 +1,5 @@
-DIALOGUE_EXTRACTION_PROMPT = """You are a helpful assistant trying to extract entities and relations from a given multi-turn chat transcript between a User and an Assistant.
+DIALOGUE_EXTRACTION_PROMPT = """/no_think
+You are a helpful assistant trying to extract entities and relations from a given multi-turn chat transcript between a User and an Assistant.
 
 -Goal-
 Given a multi-turn chat transcript between a User and an Assistant in json format, identify all entities of pre-defined entity types from the text and all relationships among the identified entities.
@@ -137,7 +138,8 @@ Query time:
 ################
 Output:"""
 
-LOCOMO_EXTRACTION_PROMPT = """You are a helpful assistant trying to extract entities and relations from a given multi-turn chat transcript.
+LOCOMO_EXTRACTION_PROMPT = """/no_think
+You are a helpful assistant trying to extract entities and relations from a given multi-turn chat transcript.
 
 -Goal-
 Given a multi-turn chat transcript in json format, identify all entities of pre-defined entity types from the text and all relationships among the identified entities.

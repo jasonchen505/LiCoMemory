@@ -20,6 +20,8 @@ class EmbeddingManager:
             self.max_token_size = config.max_token_size
             self.embed_batch_size = config.embed_batch_size
             self.embedding_func_max_async = config.embedding_func_max_async
+            self.base_url = getattr(config, 'base_url', None)
+            self.timeout = getattr(config, 'timeout', 60)
         else:
             # Default values
             self.api_type = "openai"
@@ -30,6 +32,7 @@ class EmbeddingManager:
             self.max_token_size = 8192
             self.embed_batch_size = 100
             self.embedding_func_max_async = 10
+            self.base_url = None
 
         # Initialize GPU/CUDA device for torch operations
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -80,12 +83,29 @@ class EmbeddingManager:
                     return embeddings
                 return embeddings.cpu().tolist() if isinstance(embeddings, torch.Tensor) else embeddings.tolist()
             else:
-                response = await self.client.Embedding.acreate(
-                    input=texts,
-                    model=self.model_name
+                # Use new OpenAI API (>=1.0.0)
+                import openai
+                import asyncio
+                import httpx
+                timeout = getattr(self, 'timeout', 60)
+                http_client = httpx.AsyncClient(timeout=timeout)
+                client = openai.AsyncOpenAI(
+                    api_key=self.api_key if self.api_key else "ollama",
+                    base_url=getattr(self, 'base_url', None),
+                    http_client=http_client
                 )
-                embeddings = [data.embedding for data in response.data]
-                return embeddings
+                try:
+                    response = await client.embeddings.create(
+                        input=texts,
+                        model=self.model_name
+                    )
+                    embeddings = [item.embedding for item in response.data]
+                    await http_client.aclose()
+                    return embeddings
+                except Exception as e:
+                    logger.error(f"Embedding API error: {e}")
+                    await http_client.aclose()
+                    return []
         except Exception as e:
             logger.error(f"Failed to get embeddings: {e}")
             return []

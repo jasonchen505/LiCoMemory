@@ -289,7 +289,7 @@ if __name__ == "__main__":
             )
 
     # Run queries if requested
-    if args.query:
+    if args.query and args.query != "0":
         print("Running query and evaluation...")
         save_path = wrapper_query(query_dataset, graph_rag, result_dir, config)
         evaluation_results = asyncio.run(wrapper_evaluation(save_path, config.dataset_name, result_dir, config))

@@ -52,6 +52,32 @@ class DialogueExtractor:
         
         if not response:
             return entities, relationships
+        
+        # Debug: save raw response for analysis
+        import os
+        debug_dir = "./debug_outputs"
+        os.makedirs(debug_dir, exist_ok=True)
+        debug_file = os.path.join(debug_dir, "llm_responses.txt")
+        with open(debug_file, "a", encoding="utf-8") as f:
+            f.write(f"{'='*80}\n")
+            f.write(f"Response length: {len(response)}\n")
+            f.write(f"Response:\n{response[:2000]}\n")
+            f.write(f"{'='*80}\n\n")
+        
+        # Try to handle different response formats
+        # Format 1: ## delimited (expected format)
+        # Format 2: JSON format
+        # Format 3: Plain text with patterns
+        
+        # First try: check if response contains think tags (Qwen3 thinking mode)
+        if '<think>' in response and '</think>' in response:
+            # Extract content after think tags
+            import re
+            think_match = re.search(r'<think>.*?</think>\s*(.*)', response, re.DOTALL)
+            if think_match:
+                response = think_match.group(1).strip()
+                logger.debug(f"Extracted content after think tags: {response[:200]}")
+        
         parts = response.split('##')
         
         for part in parts:
