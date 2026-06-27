@@ -1,0 +1,3 @@
+{"question": "Which cities is Charlie visiting in Japan?", "answer": "Charlie is visiting Tokyo, Kyoto, and Osaka.", "question_type": "1", "origin": "D1", "label": "Charlie is visiting Tokyo, Kyoto, and Osaka."}
+{"question": "When is Charlie's trip to Japan?", "answer": "Charlie's trip starts on April 10th.", "question_type": "3", "origin": "D2", "label": "Charlie's trip starts on April 10th."}
+{"question": "What type of accommodation did Charlie book in Kyoto?", "answer": "Charlie booked a ryokan, which is a traditional Japanese inn.", "question_type": "1", "origin": "D2", "label": "Charlie booked a ryokan, which is a traditional Japanese inn."}

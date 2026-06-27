@@ -1,0 +1,35 @@
+{
+  "evaluation_method": "llm_based",
+  "eval_model": "qwen3:14b",
+  "total_questions": 5,
+  "answered_questions": 5,
+  "correct_answers": 0,
+  "accuracy": 0.0,
+  "answer_rate": 1.0,
+  "dataset": "group_1",
+  "type_accuracy": {
+    "1": {
+      "accuracy": 0.0,
+      "total": 3,
+      "correct": 0
+    },
+    "3": {
+      "accuracy": 0.0,
+      "total": 1,
+      "correct": 0
+    },
+    "2": {
+      "accuracy": 0.0,
+      "total": 1,
+      "correct": 0
+    }
+  },
+  "average_matching_score": 0.0,
+  "matching_scores": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

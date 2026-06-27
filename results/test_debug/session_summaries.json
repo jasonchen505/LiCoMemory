@@ -1,0 +1,29 @@
+[
+  {
+    "session_id": "D1",
+    "session_time": "2024-03-15",
+    "keys": "session, conversation",
+    "context": {
+      "theme_1": "General conversation",
+      "summary_1": "<think>\nOkay, let's tackle this. The user wants a summary of a multi-turn chat transcript between Alice and Bob. The goal is to group the conversation into distinct themes and extract key information...."
+    }
+  },
+  {
+    "session_id": "D2",
+    "session_time": "2024-03-20",
+    "keys": "session, conversation",
+    "context": {
+      "theme_1": "General conversation",
+      "summary_1": "<think>\nOkay, let's tackle this. The user wants a summary of a multi-turn chat transcript between Alice and Bob. The goal is to group the conversation by distinct themes and extract key information. \n..."
+    }
+  },
+  {
+    "session_id": "D3",
+    "session_time": "2024-03-25",
+    "keys": "session, conversation",
+    "context": {
+      "theme_1": "General conversation",
+      "summary_1": "<think>\nOkay, let's tackle this. The user wants a summary of a multi-turn chat transcript between Alice and Bob. The goal is to group the conversation into distinct themes and extract key information...."
+    }
+  }
+]

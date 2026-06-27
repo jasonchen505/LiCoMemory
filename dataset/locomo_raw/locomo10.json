@@ -1,0 +1,97 @@
+[
+  {
+    "conversation": {
+      "session_1": [
+        {"speaker": "Alice", "text": "Hi, how are you today?"},
+        {"speaker": "Bob", "text": "I'm doing well, thanks! Just finished working on the project."},
+        {"speaker": "Alice", "text": "That's great! How did the presentation go yesterday?"},
+        {"speaker": "Bob", "text": "It went really well. The client loved our proposal."}
+      ],
+      "session_1_date_time": "2:30 pm on 15 March, 2024",
+      "session_2": [
+        {"speaker": "Alice", "text": "Did you see the news about the new AI model?"},
+        {"speaker": "Bob", "text": "Yes, it's amazing how fast the technology is advancing."},
+        {"speaker": "Alice", "text": "I think we should incorporate it into our next project."},
+        {"speaker": "Bob", "text": "Good idea. Let me research it more this week."}
+      ],
+      "session_2_date_time": "10:15 am on 20 March, 2024",
+      "session_3": [
+        {"speaker": "Alice", "text": "How's the research going on the new AI model?"},
+        {"speaker": "Bob", "text": "I've gathered a lot of information. The model has 70B parameters."},
+        {"speaker": "Alice", "text": "That's impressive. What about the performance metrics?"},
+        {"speaker": "Bob", "text": "It outperforms GPT-4 on several benchmarks."}
+      ],
+      "session_3_date_time": "3:45 pm on 25 March, 2024"
+    },
+    "qa": [
+      {
+        "question": "How did the presentation go?",
+        "answer": "The presentation went really well and the client loved the proposal.",
+        "evidence": ["D1:3"],
+        "category": "1"
+      },
+      {
+        "question": "What is the parameter count of the new AI model?",
+        "answer": "The new AI model has 70 billion parameters.",
+        "evidence": ["D3:2"],
+        "category": "1"
+      },
+      {
+        "question": "When did Alice and Bob discuss the new AI model?",
+        "answer": "They discussed the new AI model on March 20, 2024.",
+        "evidence": ["D2:1"],
+        "category": "3"
+      },
+      {
+        "question": "What did Bob say about the AI model's performance compared to GPT-4?",
+        "answer": "Bob said the model outperforms GPT-4 on several benchmarks.",
+        "evidence": ["D3:4"],
+        "category": "1"
+      },
+      {
+        "question": "What project did Bob finish working on before the presentation?",
+        "answer": "Bob finished working on the project that involved the client presentation.",
+        "evidence": ["D1:2"],
+        "category": "2"
+      }
+    ]
+  },
+  {
+    "conversation": {
+      "session_1": [
+        {"speaker": "Charlie", "text": "I'm planning a trip to Japan next month."},
+        {"speaker": "Diana", "text": "That sounds exciting! Which cities are you visiting?"},
+        {"speaker": "Charlie", "text": "Tokyo, Kyoto, and Osaka. I've always wanted to see the cherry blossoms."},
+        {"speaker": "Diana", "text": "Perfect timing! The cherry blossoms are beautiful in April."}
+      ],
+      "session_1_date_time": "11:00 am on 1 April, 2024",
+      "session_2": [
+        {"speaker": "Charlie", "text": "I just booked the flights! We leave on April 10th."},
+        {"speaker": "Diana", "text": "Great! Have you booked the hotels yet?"},
+        {"speaker": "Charlie", "text": "Yes, I found a great ryokan in Kyoto."},
+        {"speaker": "Diana", "text": "A traditional Japanese inn? That's a wonderful experience!"}
+      ],
+      "session_2_date_time": "4:20 pm on 5 April, 2024"
+    },
+    "qa": [
+      {
+        "question": "Which cities is Charlie visiting in Japan?",
+        "answer": "Charlie is visiting Tokyo, Kyoto, and Osaka.",
+        "evidence": ["D1:3"],
+        "category": "1"
+      },
+      {
+        "question": "When is Charlie's trip to Japan?",
+        "answer": "Charlie's trip starts on April 10th.",
+        "evidence": ["D2:1"],
+        "category": "3"
+      },
+      {
+        "question": "What type of accommodation did Charlie book in Kyoto?",
+        "answer": "Charlie booked a ryokan, which is a traditional Japanese inn.",
+        "evidence": ["D2:3"],
+        "category": "1"
+      }
+    ]
+  }
+]
